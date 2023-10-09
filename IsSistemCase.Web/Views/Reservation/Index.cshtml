@@ -1,0 +1,59 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+
+@model CreateReservationRequestViewModel
+
+<div class="row">
+	<div class="col-md-6 offset-md-3">
+		<h2>Reservation Info</h2>
+
+		@if (TempData["SuccessMessage"] != null)
+		{
+			<div class="alert alert-info" role="alert">
+				@TempData["SuccessMessage"]
+			</div>
+		}
+
+		<div asp-validation-summary="ModelOnly" class="alert alert-warning" role="alert"></div>
+
+		<form asp-controller="Reservation" asp-action="Index" method="post">
+			<div class="row mb-3">
+				<label for="CustomerName" class="col-md-4 col-form-label" asp-for="CustomerName"></label>
+				<div class="col-md-8">
+					<input asp-for="CustomerName" class="form-control">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="CustomerPhone" class="col-md-4 col-form-label" asp-for="CustomerPhone"></label>
+				<div class="col-md-8">
+					<input asp-for="CustomerPhone" class="form-control">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="CustomerEmail" class="col-md-4 col-form-label" asp-for="CustomerEmail"></label>
+				<div class="col-md-8">
+					<input asp-for="CustomerEmail" class="form-control">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="NumberOfGuests" class="col-md-4 col-form-label" asp-for="NumberOfGuests"></label>
+				<div class="col-md-8">
+					<input asp-for="NumberOfGuests" class="form-control" min="1">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="ReservationDate" class="col-md-4 col-form-label" asp-for="ReservationDate"></label>
+				<div class="col-md-8">
+					<input asp-for="ReservationDate" class="form-control">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-md-8 offset-md-4">
+					<button type="submit" class="btn btn-primary">Make Reservation</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
